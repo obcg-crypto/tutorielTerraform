@@ -62,35 +62,35 @@
                                 pourrez placer l'exécutable Terraform. Allez ensuite trouver le binaire Terraform dans
                                 l'explorateur de fichiers et extrayez ce fichier zip dans le dossier que vous avez créé
                                 précédemment :</li>
-                            <img src="./img1.png" alt="">
+                            <img src="./img1.png" class="img-fluid" alt="">
 
                             <li>Ouvrez votre menu Démarrer et tapez "environnement" et la première chose qui apparaît
                                 devrait être "Modifier les variables d'environnement système".</li>
 
-                            <img src="./img2.png" alt="">
+                            <img src="./img2.png" class="img-fluid" alt="">
 
                             <li>Cliquez dessus et vous devriez voir cette fenêtre, cliquez ensuite sur le bouton
                                 "Variables d'environnement" :</li>
 
-                            <img src="./img3.png" alt="">
+                            <img src="./img3.png" class="img-fluid" alt="">
 
                             <li>Dans la section inférieure où il est indiqué "variables système", recherchez la variable
                                 nommée "PATH" et cliquez sur modifier :</li>
 
-                            <img src="./img4.png" alt="">
+                            <img src="./img4.png" class="img-fluid" alt="">
 
                             <li>Cliquez ensuite sur le bouton "Parcourir" et ajoutez le chemin du dossier où se trouve
                                 le binaire terraform.exe :</li>
 
-                            <img src="./img5.png" alt="">
+                            <img src="./img5.png" class="img-fluid" alt="">
 
                             <li>Il ne reste plus qu'à vérifier si terraform est installé avec succès sur votre machine
                                 Windows, ouvrez votre powershell et lancez la commande suivante :</li>
-                            <img src="./img6.png" alt="">
+                            <img src="./img6.png" class="img-fluid" alt="">
                             <li>
                                 Vous devriez avoir le résultat suivant en fonction de la version que vous utilisez :
                             </li>
-                            <img src="./img7.png" alt="">
+                            <img src="./img7.png" class="img-fluid" alt="">
 
                         </ul>
                         </p>
@@ -124,7 +124,7 @@
                                 langage de configuration développé par HashiCorp, la même société qui a créé Terraform.
                                 HCL est conçu spécifiquement pour la configuration d'outils d'infrastructure comme
                                 Terraform, Packer, Consul, et d'autres produits de HashiCorp. (vous pouvez l’apprendre
-                                sur ce lien https://developer.hashicorp.com/terraform/language )</li>
+                                sur ce lien <a href="https://developer.hashicorp.com/terraform/language ">https://developer.hashicorp.com/terraform/language </a>)</li>
                         </ul>
                         <p><b>Étape 1: </b>Configuration du Provider VMware dans Terraform</p>
 
@@ -133,7 +133,7 @@
                                 HCL</li>
                             <li>Créez un fichier main.tf dans le répertoire module pour définir le fournisseur VMware
                                 comme dans la capture d’écran:</li>
-                            <img src="./img8.png" alt="">
+                            <img src="./img8.png" class="img-fluid" alt="">
                         </ul>
 
                         <p><b>Étape 2: </b> Définir les Machines Virtuelles</p>
@@ -141,22 +141,22 @@
                         <ul>
                             <li>Créez un fichier vms.tf pour définir les machines virtuelles que vous souhaitez créer.
                                 Par exemple, pour deux machines virtuelles simples on a le code ci-dessous:</li>
-                            <img src="./img9.png" alt="">
-                            <img src="./img10.png" alt="">
+                            <img src="./img9.png" class="img-fluid" alt="">
+                            <img src="./img10.png" class="img-fluid" alt="">
                         </ul>
 
                         <p><b>Étape 3: </b>Initialiser et Appliquer les Changements</p>
                         <ul>
                             <li>Dans le répertoire module, ouvrez un terminal et exécutez la commande suivante :</li>
-                            <img src="./img11.png" alt="">
-                            <img src="./img12.png" alt="">
+                            <img src="./img11.png" class="img-fluid" alt="">
+                            <img src="./img12.png" class="img-fluid" alt="">
                             <li>En suite exécutez la commande suivante après la fin de l’exécution de la commande
                                 précédente</li>
-                            <img src="./img13.png" alt="">
+                            <img src="./img13.png" class="img-fluid" alt="">
                             <li>On obtient le résultat attendu sur vmware ESXi</li>
-                            <img src="./img14.png" alt="">
-                            <img src="./img15.png" alt="">
-                            <img src="./img16.png" alt="">
+                            <img src="./img14.png" class="img-fluid" alt="">
+                            <img src="./img15.png" class="img-fluid" alt="">
+                            <img src="./img16.png" class="img-fluid" alt="">
 
                         </ul>
                         </p>
@@ -189,14 +189,14 @@
                             états souhaités d'un système. L’utilisation conjointe de Terraform et Ansible est une
                             approche courante et complémentaire, et elle est souvent recommandée pour automatiser
                             l'ensemble du cycle de vie d'une infrastructure, de sa création à sa configuration. Pour en
-                            savoir plus (https://docs.ansible.com/ansible/latest/index.html). Les étapes pour la gestion
+                            savoir plus <a href="https://docs.ansible.com/ansible/latest/index.html">(https://docs.ansible.com/ansible/latest/index.html)</a>. Les étapes pour la gestion
                             des machines virtuelles sont les suivantes :
                         </p>
                         <b>Etape 1 :</b>
                         <ul>
                             <li>Créez un fichier ansible_inventory.ini dans le répertoire module</li>
                             <li>Insérez le code suivant : </li>
-                            <img src="./img17.png" alt="">
+                            <img src="./img17.png" class="img-fluid" alt="">
                         </ul>
 
                         <b>Etape 2 :</b>
@@ -207,21 +207,21 @@
                         </ul>
 
                         <p>Allumer une VM </p>
-                        <img src="./img18.png" alt="">
+                        <img src="./img18.png" class="img-fluid" alt="">
 
                         <p>Eteindre une VM </p>
-                        <img src="./img19.png" alt="">
+                        <img src="./img19.png" class="img-fluid" alt="">
 
                         <p>Suspendre une VM </p>
-                        <img src="./img20.png" alt="">
+                        <img src="./img20.png" class="img-fluid" alt="">
 
                         <p> Supprimer une VM </p>
-                        <img src="./img21.png" alt="">
+                        <img src="./img21.png" class="img-fluid" alt="">
 
                         <p><b>Etape 3</b></p>
                         <ul>
                             <li>Exécuter la commande :</li>
-                            <img src="./img22.png" alt="">
+                            <img src="./img22.png" class="img-fluid" alt="">
                         </ul>
                         </p>
                     </div>
@@ -231,7 +231,7 @@
 
     </div>
     <footer class="text-center mt-5">
-        <p>&copy; 2023 Obono Biyoo. Tous droits réservés.</p>
+        <p>&copy; 2023 Polytech 2023. Tous droits réservés.</p>
     </footer>
     <!-- Ajoutez les liens CDN jQuery et Popper.js pour le bon fonctionnement de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
