@@ -38,6 +38,85 @@
     <div class="container">
         <h1 class="text-center">Tutoriels Terraform</h1>
 
+
+        <div class="accordion" id="accordionInstallation">
+            <div class="card">
+                <div class="card-header" id="introduction">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapseIntroduction" aria-expanded="true"
+                            aria-controls="collapseIntroduction">
+                            Introduction à Terraform
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseIntroduction" class="collapse" aria-labelledby="introduction"
+                    data-parent="#accordionIntroduction">
+                    <div class="card-body">
+                        <!-- Contenu du tutoriel d'introduction -->
+                        <p>
+                            <b>Définition</b>
+                        <p>Terraform est l'un des outils d'infrastructure en tant que code (IaC) les plus populaires ,
+                            utilisé par les équipes DevOps pour automatiser les tâches d'infrastructure. Il est utilisé
+                            pour automatiser le provisionnement de vos ressources cloud. Terraform est un outil de
+                            provisionnement open source indépendant du cloud développé par HashiCorp et écrit en langage
+                            GO.
+                        </p>
+
+                        <b>Langage HCL de Terraform</b>
+                        <p>
+
+                            Dans le cas de Terraform, le langage utilisé pour définir l’infrastructure est connu sous le
+                            nom de HashiCorp Configuration Langage (HCL).
+
+                            L'objectif principal de Terraform est de déclarer des ressources, qui représentent des
+                            objets d'infrastructure. Toutes les autres fonctionnalités de son langage permettent de
+                            rendre la définition des ressources plus flexible et pratique.
+
+                            Pour le moment nous allons nous concentrer sur la description du workflow de Terraform et
+                            l'écriture des fichiers de déclarations.</p>
+                        <b>Cycle de vie</b>
+                        <p>Le cycle de vie de Terraform comprend : Write , init , plan , apply et destroy .
+
+                            <ol>
+                                <li>Terraform Write: Vous commencez à écrire votre configuration.</li>
+                                <li>Terraform init initialise l'environnement Terraform (local). Généralement exécuté une
+                                    seule fois par session.</li>
+                                <li>Terraform plan compare l'état Terraform avec l'état tel quel dans le cloud, crée et
+                                    affiche un
+                                    plan d'exécution. Cela ne modifie pas le déploiement (lecture seule).
+                                </li>
+                                <li>Terraform apply exécute le plan. Cela modifie potentiellement le déploiement.</li>
+                                <li>Terraform destroy supprime toutes les ressources régies par cet environnement Terraform
+                                    spécifique.</li>
+                            </ol>
+                        </p>
+
+                        <b>Gestion d'états</b>
+
+                        <p>La gestion de l'état est un aspect important du workflow de Terraform. L'état de
+                            l'infrastructure est stocké dans un fichier d'état, généralement stocké localement ou de
+                            manière centralisée via un backend distant. Il est important de gérer cet état avec soin
+                            pour assurer la cohérence de l'infrastructure et éviter les conflits.
+
+                            Par défaut cet état est stocké dans un fichier local nommé "terraform.tfstate", mais il peut
+                            également être stocké à distance, mais pas dans votre repository git, parce qu'il peut
+                            contenir des secrets.
+
+                            Terraform utilise cet état pour créer des plans et apporter des modifications à votre
+                            infrastructure. Avant toute opération, Terraform effectue un rafraîchissement pour mettre à
+                            jour l'état avec celle de l'infrastructure réelle.
+
+                            Pour gérer ce state, il est possible d'utiliser les workspace et les backends
+                        </p>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="accordion" id="accordionInstallation">
             <div class="card">
                 <div class="card-header" id="headingInstallation">
@@ -56,8 +135,9 @@
                         <!-- Contenu du tutoriel d'installation -->
                         <p>
                         <ul>
-                            <li>Commencez par télécharger la version appropriée de Terraform depuis la page
-                                d'installation officielle.</li>
+                            <li>Commencez par télécharger la version appropriée de Terraform depuis la <a
+                                    href="https://developer.hashicorp.com/terraform/install">page
+                                    d'installation officielle</a> .</li>
                             <li>Une fois le téléchargement terminé, créez un dossier sur votre lecteur C:\ où vous
                                 pourrez placer l'exécutable Terraform. Allez ensuite trouver le binaire Terraform dans
                                 l'explorateur de fichiers et extrayez ce fichier zip dans le dossier que vous avez créé
@@ -124,7 +204,9 @@
                                 langage de configuration développé par HashiCorp, la même société qui a créé Terraform.
                                 HCL est conçu spécifiquement pour la configuration d'outils d'infrastructure comme
                                 Terraform, Packer, Consul, et d'autres produits de HashiCorp. (vous pouvez l’apprendre
-                                sur ce lien <a href="https://developer.hashicorp.com/terraform/language ">https://developer.hashicorp.com/terraform/language </a>)</li>
+                                sur ce lien <a
+                                    href="https://developer.hashicorp.com/terraform/language ">https://developer.hashicorp.com/terraform/language
+                                </a>)</li>
                         </ul>
                         <p><b>Étape 1: </b>Configuration du Provider VMware dans Terraform</p>
 
@@ -132,7 +214,7 @@
                             <li>Créer un répertoire module dans lequel nous allons placer nos différents codes sources
                                 HCL</li>
                             <li>Créez un fichier main.tf dans le répertoire module pour définir le fournisseur VMware
-                                comme dans la capture d’écran:</li>
+                                comme dans la capture d’écran (Remplacer avec vos informations personnelles):</li>
                             <img src="./img8.png" class="img-fluid" alt="">
                         </ul>
 
@@ -189,13 +271,15 @@
                             états souhaités d'un système. L’utilisation conjointe de Terraform et Ansible est une
                             approche courante et complémentaire, et elle est souvent recommandée pour automatiser
                             l'ensemble du cycle de vie d'une infrastructure, de sa création à sa configuration. Pour en
-                            savoir plus <a href="https://docs.ansible.com/ansible/latest/index.html">(https://docs.ansible.com/ansible/latest/index.html)</a>. Les étapes pour la gestion
+                            savoir plus <a
+                                href="https://docs.ansible.com/ansible/latest/index.html">(https://docs.ansible.com/ansible/latest/index.html)</a>.
+                            Les étapes pour la gestion
                             des machines virtuelles sont les suivantes :
                         </p>
                         <b>Etape 1 :</b>
                         <ul>
                             <li>Créez un fichier ansible_inventory.ini dans le répertoire module</li>
-                            <li>Insérez le code suivant : </li>
+                            <li>Insérez le code suivant (Remplacer avec vos informations personnelles) : </li>
                             <img src="./img17.png" class="img-fluid" alt="">
                         </ul>
 
@@ -231,7 +315,7 @@
 
     </div>
     <footer class="text-center mt-5">
-        <p>&copy; Obono,Mevongo,Tcheuha,Tadontsa,Yemkwa. Tous droits réservés.</p>
+        <p>&copy; Obono,Mevongo,Tcheuha,Tadontsa,Yemkwa,Kenne. Tous droits réservés.</p>
     </footer>
     <!-- Ajoutez les liens CDN jQuery et Popper.js pour le bon fonctionnement de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
