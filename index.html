@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vos Tutoriels Terraform</title>
+    <!-- Ajoutez les liens CDN Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .element {
+            margin: 40px 20px;
+        }
+
+        .center-images img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Appliquez le style uniquement aux li qui ont une image */
+        li.has-img {
+            list-style: none;
+            /* Remplacez ceci par votre style */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Tutoriels Terraform</h1>
+
+        <div class="accordion" id="accordionInstallation">
+            <div class="card">
+                <div class="card-header" id="headingInstallation">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapseInstallation" aria-expanded="true"
+                            aria-controls="collapseInstallation">
+                            Installation de Terraform sur Windows
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseInstallation" class="collapse" aria-labelledby="headingInstallation"
+                    data-parent="#accordionInstallation">
+                    <div class="card-body">
+                        <!-- Contenu du tutoriel d'installation -->
+                        <p>
+                        <ul>
+                            <li>Commencez par télécharger la version appropriée de Terraform depuis la page
+                                d'installation officielle.</li>
+                            <li>Une fois le téléchargement terminé, créez un dossier sur votre lecteur C:\ où vous
+                                pourrez placer l'exécutable Terraform. Allez ensuite trouver le binaire Terraform dans
+                                l'explorateur de fichiers et extrayez ce fichier zip dans le dossier que vous avez créé
+                                précédemment :</li>
+                            <img src="./img1.png" alt="">
+
+                            <li>Ouvrez votre menu Démarrer et tapez "environnement" et la première chose qui apparaît
+                                devrait être "Modifier les variables d'environnement système".</li>
+
+                            <img src="./img2.png" alt="">
+
+                            <li>Cliquez dessus et vous devriez voir cette fenêtre, cliquez ensuite sur le bouton
+                                "Variables d'environnement" :</li>
+
+                            <img src="./img3.png" alt="">
+
+                            <li>Dans la section inférieure où il est indiqué "variables système", recherchez la variable
+                                nommée "PATH" et cliquez sur modifier :</li>
+
+                            <img src="./img4.png" alt="">
+
+                            <li>Cliquez ensuite sur le bouton "Parcourir" et ajoutez le chemin du dossier où se trouve
+                                le binaire terraform.exe :</li>
+
+                            <img src="./img5.png" alt="">
+
+                            <li>Il ne reste plus qu'à vérifier si terraform est installé avec succès sur votre machine
+                                Windows, ouvrez votre powershell et lancez la commande suivante :</li>
+                            <img src="./img6.png" alt="">
+                            <li>
+                                Vous devriez avoir le résultat suivant en fonction de la version que vous utilisez :
+                            </li>
+                            <img src="./img7.png" alt="">
+
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionDeploiement">
+            <div class="card">
+                <div class="card-header" id="headingDeploiement">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                            data-target="#collapseDeploiement" aria-expanded="true" aria-controls="collapseDeploiement">
+                            Déploiement des VMs sur ESXi vmware avec Terraform
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseDeploiement" class="collapse" aria-labelledby="headingDeploiement"
+                    data-parent="#accordionDeploiement">
+                    <div class="card-body">
+                        <!-- Contenu du tutoriel de déploiement -->
+                        <p>
+                            <b>Prérequis :</b>
+                        <ul>
+                            <li>Assurez-vous que vous avez un accès à un serveur VMware ESXi avec les informations de
+                                connexion nécessaires (l'adresse IP, le nom d'utilisateur et le mot de passe).</li>
+                            <li>Assurez-vous d’avoir installé Terraform dans votre ordinateur</li>
+                            <li>Connaissance du langage HCL. HCL signifie HashiCorp Configuration Language. C'est un
+                                langage de configuration développé par HashiCorp, la même société qui a créé Terraform.
+                                HCL est conçu spécifiquement pour la configuration d'outils d'infrastructure comme
+                                Terraform, Packer, Consul, et d'autres produits de HashiCorp. (vous pouvez l’apprendre
+                                sur ce lien https://developer.hashicorp.com/terraform/language )</li>
+                        </ul>
+                        <p><b>Étape 1: </b>Configuration du Provider VMware dans Terraform</p>
+
+                        <ul>
+                            <li>Créer un répertoire module dans lequel nous allons placer nos différents codes sources
+                                HCL</li>
+                            <li>Créez un fichier main.tf dans le répertoire module pour définir le fournisseur VMware
+                                comme dans la capture d’écran:</li>
+                            <img src="./img8.png" alt="">
+                        </ul>
+
+                        <p><b>Étape 2: </b> Définir les Machines Virtuelles</p>
+
+                        <ul>
+                            <li>Créez un fichier vms.tf pour définir les machines virtuelles que vous souhaitez créer.
+                                Par exemple, pour deux machines virtuelles simples on a le code ci-dessous:</li>
+                            <img src="./img9.png" alt="">
+                            <img src="./img10.png" alt="">
+                        </ul>
+
+                        <p><b>Étape 3: </b>Initialiser et Appliquer les Changements</p>
+                        <ul>
+                            <li>Dans le répertoire module, ouvrez un terminal et exécutez la commande suivante :</li>
+                            <img src="./img11.png" alt="">
+                            <img src="./img12.png" alt="">
+                            <li>En suite exécutez la commande suivante après la fin de l’exécution de la commande
+                                précédente</li>
+                            <img src="./img13.png" alt="">
+                            <li>On obtient le résultat attendu sur vmware ESXi</li>
+                            <img src="./img14.png" alt="">
+                            <img src="./img15.png" alt="">
+                            <img src="./img16.png" alt="">
+
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion" id="accordionGestion">
+            <div class="card">
+                <div class="card-header" id="headingGestion">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseGestion"
+                            aria-expanded="true" aria-controls="collapseGestion">
+                            Gestion des VMs avec Terraform sur vmware ESXi
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseGestion" class="collapse" aria-labelledby="headingGestion"
+                    data-parent="#accordionGestion">
+                    <div class="card-body">
+                        <!-- Contenu du tutoriel de gestion -->
+                        <p>
+                        <p>
+                            Dans cette partie nous allons utiliser Ansible. Ansible est une plateforme d'automatisation
+                            open source qui permet la gestion de la configuration, le déploiement d'applications, et la
+                            gestion des tâches complexes d'administration système. Il simplifie le processus en
+                            utilisant des fichiers de configuration déclaratifs, appelés playbooks, qui décrivent les
+                            états souhaités d'un système. L’utilisation conjointe de Terraform et Ansible est une
+                            approche courante et complémentaire, et elle est souvent recommandée pour automatiser
+                            l'ensemble du cycle de vie d'une infrastructure, de sa création à sa configuration. Pour en
+                            savoir plus (https://docs.ansible.com/ansible/latest/index.html). Les étapes pour la gestion
+                            des machines virtuelles sont les suivantes :
+                        </p>
+                        <b>Etape 1 :</b>
+                        <ul>
+                            <li>Créez un fichier ansible_inventory.ini dans le répertoire module</li>
+                            <li>Insérez le code suivant : </li>
+                            <img src="./img17.png" alt="">
+                        </ul>
+
+                        <b>Etape 2 :</b>
+
+                        <ul>
+                            <li>Créez un playbook Ansible manage_vms.yml</li>
+                            <li>Inserez le code ci-dessous </li>
+                        </ul>
+
+                        <p>Allumer une VM </p>
+                        <img src="./img18.png" alt="">
+
+                        <p>Eteindre une VM </p>
+                        <img src="./img19.png" alt="">
+
+                        <p>Suspendre une VM </p>
+                        <img src="./img20.png" alt="">
+
+                        <p> Supprimer une VM </p>
+                        <img src="./img21.png" alt="">
+
+                        <p><b>Etape 3</b></p>
+                        <ul>
+                            <li>Exécuter la commande :</li>
+                            <img src="./img22.png" alt="">
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 Obono Biyoo. Tous droits réservés.</p>
+    </footer>
+    <!-- Ajoutez les liens CDN jQuery et Popper.js pour le bon fonctionnement de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Ajoutez le lien CDN Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
